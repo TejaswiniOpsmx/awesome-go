@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	template2 "html/template"
+	"html/template"
 	"io"
 	"log"
 	"net/http"
@@ -15,7 +15,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"text/template"
 	"time"
 
 	"github.com/avelino/awesome-go/pkg/markdown"
@@ -422,7 +421,7 @@ func renderIndex(srcFilename, outFilename string) error {
 
 	fmt.Printf("Write Index file: %s\n", outIndexFile)
 	data := map[string]interface{}{
-		"Body": template2.HTML(body),
+		"Body": template.HTML(body),
 	}
 	if err := tpl.Lookup("index.tmpl.html").Execute(f, data); err != nil {
 		return err
